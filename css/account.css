@@ -1,0 +1,569 @@
+/* ===== personal_account.css — Личный кабинет ===== */
+/* Современный, минималистичный дизайн в стиле основного сайта */
+
+/* ---------- RESET / ГЛОБАЛЬНЫЕ ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f7;
+    color: #1a1a1a;
+    line-height: 1.5;
+    overflow-x: hidden;
+    padding: 2rem 1rem;
+}
+
+/* ---------- АНИМАЦИИ ---------- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    animation: fadeUp 0.6s ease forwards;
+}
+
+/* ---------- КОНТЕЙНЕР ЛИЧНОГО КАБИНЕТА ---------- */
+.account-container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    transition: box-shadow 0.3s;
+    animation: fadeUp 0.5s ease;
+}
+
+.account-container:hover {
+    box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- ССЫЛКА НА ГЛАВНУЮ ---------- */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 1.8rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s, transform 0.1s;
+}
+
+.back-link:hover {
+    color: #000;
+    transform: translateX(-3px);
+    text-decoration: underline;
+}
+
+/* ---------- КАРТОЧКА ДАННЫХ ПОЛЬЗОВАТЕЛЯ ---------- */
+.login-form {
+    background: #fafafc;
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #eee;
+    transition: box-shadow 0.2s;
+}
+
+.login-form h2, .login-form h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #ececec;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row .label {
+    font-weight: 600;
+    color: #555;
+    min-width: 140px;
+}
+
+.info-row .value {
+    color: #1a1a1a;
+    text-align: right;
+    word-break: break-word;
+    max-width: 60%;
+}
+
+/* ---------- ФОРМЫ (РЕДАКТИРОВАНИЕ / СМЕНА ПАРОЛЯ) ---------- */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-group textarea {
+    border-radius: 20px;
+    resize: vertical;
+}
+
+button[type="submit"],
+.toggle-password-btn,
+.toggle-profile-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 0.8rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+button[type="submit"]:hover,
+.toggle-password-btn:hover,
+.toggle-profile-btn:hover {
+    background: #2c2c2c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.15);
+}
+
+/* Сообщения об успехе / ошибке */
+.message-success {
+    background: #e6ffed;
+    border-left: 5px solid #2c7a4b;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    color: #1e6f3f;
+    font-size: 0.9rem;
+}
+
+.message-error {
+    background: #ffe6e6;
+    border-left: 5px solid #c53030;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    color: #b91c1c;
+    font-size: 0.9rem;
+}
+
+.logout-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #c53030;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.logout-link:hover {
+    color: #9b1c1c;
+    text-decoration: underline;
+}
+
+/* ---------- ИСТОРИЯ ЗАКАЗОВ ---------- */
+.orders-section {
+    margin-top: 2.5rem;
+    border-top: 2px solid #eee;
+    padding-top: 2rem;
+}
+
+.orders-section h3 {
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.order-card {
+    background: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid #ececec;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.order-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.1);
+    border-color: #ddd;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.order-header > div:first-child {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.order-number {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.order-date {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.order-total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.status-pending {
+    background: #fff3e0;
+    color: #b45309;
+}
+
+.status-paid {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.status-shipped {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-delivered {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-cancelled {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.action-buttons-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.action-button {
+    padding: 5px 14px;
+    border: none;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #000;
+    color: white;
+}
+
+.pay-button {
+    background: #00993d;
+}
+
+.pay-button:hover {
+    background: #006127;
+    transform: translateY(-1px);
+}
+
+.cancel-button {
+    background: #890000;
+}
+
+.cancel-button:hover {
+    background: #500000;
+    transform: translateY(-1px);
+}
+
+.toggle-icon {
+    font-size: 1rem;
+    transition: transform 0.2s;
+    margin-left: 8px;
+    color: #888;
+}
+
+.toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.order-items {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #e0e0e0;
+    display: none;
+}
+
+.order-items.show {
+    display: block;
+    animation: fadeUp 0.3s ease;
+}
+
+.order-items table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.order-items th,
+.order-items td {
+    text-align: left;
+    padding: 10px 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-items th {
+    color: #555;
+    font-weight: 500;
+}
+
+/* ---------- ИЗБРАННОЕ ---------- */
+.wishlist-section {
+    margin-top: 3rem;
+    border-top: 2px solid #eee;
+    padding-top: 2rem;
+}
+
+.wishlist-section h3 {
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.wishlist-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 1rem;
+    transition: all 0.25s ease;
+    border: 1px solid #ececec;
+    display: flex;
+    flex-direction: column;
+    animation: cardReveal 0.4s ease backwards;
+    animation-delay: calc(var(--index, 0) * 0.05s);
+}
+
+.wishlist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.1);
+    border-color: #ddd;
+}
+
+.wishlist-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1.2;
+    object-fit: cover;
+    border-radius: 16px;
+    background: #f5f5f5;
+}
+
+.wishlist-card h4 {
+    margin: 0.8rem 0 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.wishlist-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.wishlist-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.wishlist-remove,
+.wishlist-add-to-cart {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.wishlist-remove {
+    background: #f0f0f0;
+    color: #b91c1c;
+}
+
+.wishlist-remove:hover {
+    background: #fee2e2;
+    transform: translateY(-2px);
+}
+
+.wishlist-add-to-cart {
+    background: #000;
+    color: #fff;
+}
+
+.wishlist-add-to-cart:hover {
+    background: #2c2c2c;
+    transform: translateY(-2px);
+}
+
+/* ---------- ФОРМА ВХОДА (для неавторизованных) ---------- */
+.login-form form button {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* ---------- АДАПТИВНОСТЬ ---------- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .account-container {
+        padding: 1.2rem;
+        border-radius: 24px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .info-row .label,
+    .info-row .value {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .action-buttons-group {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .order-header > div:first-child {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .wishlist-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .account-container {
+        padding: 1rem;
+    }
+
+    .toggle-password-btn,
+    .toggle-profile-btn,
+    button[type="submit"] {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .order-card {
+        padding: 1rem;
+    }
+
+    .order-number {
+        font-size: 1rem;
+    }
+
+    .wishlist-card h4 {
+        font-size: 0.9rem;
+    }
+}
